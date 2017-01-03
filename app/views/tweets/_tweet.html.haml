@@ -1,0 +1,17 @@
+%tr
+  %td
+    %p
+      = tweet.user_name
+      ·
+      = distance_of_time_in_words_to_now(tweet.created_at)
+    %p
+      - if tweet.text.include?("https:")||tweet.text.include?("http:")
+        = link_to tweet.text, tweet.text
+      - else
+        = tweet.text
+    %p
+      %span.reply
+      %span.retweet
+      = link_to like_tweet_path(tweet) do
+        %span.heart
+      = tweet.hearts.count
