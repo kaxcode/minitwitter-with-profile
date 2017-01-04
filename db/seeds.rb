@@ -6,8 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-tweets = Tweet.create (
-[
-  {user_name: "@kaxcode", text: "hello, world"}, {user_name: "@kaxcode", text: "hello, can you hear me?"}, {user_name: "@kaxcode", text: "https://www.youtube.com/"}, {user_name: "@kaxcode", text: "Lollipop cake cotton candy cookie soufflé candy canes marzipan tiramisu sugar plum. Gummi bears tootsie roll soufflé tart powder pie pudding"}
-]
+kenia = User.create!(email: "kenia@example.com", password: "123456")
+jasmine = User.create!(email: "jasmine@exmaple.com", password: "123456")
+
+tweets = Tweet.create! (
+  [
+    { user: kenia, text: "hello, world" },
+    { user: kenia , text: "hello, can you hear me?" },
+    { user: jasmine, text: "https://www.youtube.com/" },
+    { user: jasmine, text: "Lollipop cake cotton candy cookie soufflé candy canes marzipan tiramisu sugar plum. Gummi bears tootsie roll soufflé tart powder pie pudding" }
+  ]
 )

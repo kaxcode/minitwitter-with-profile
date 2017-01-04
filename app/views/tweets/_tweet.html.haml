@@ -1,9 +1,10 @@
 %tr
   %td
-    %p
-      = link_to tweet.user_name, user_path(tweet)
-      ·
-      = distance_of_time_in_words_to_now(tweet.created_at)
+    - if tweet.user
+      %p
+        = link_to tweet.user.email, user_path(tweet.user)
+        ·
+        = distance_of_time_in_words_to_now(tweet.created_at)
     %p
       - if tweet.text.include?("https:")||tweet.text.include?("http:")
         = link_to tweet.text, tweet.text

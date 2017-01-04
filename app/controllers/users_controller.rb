@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   def show
-    @users = Tweet.all.order("created_at DESC").where("text LIKE ?", "%#{params[:user_id]}%")
+    # @tweets = Tweet.all.order("created_at DESC").where(user_id: current_user)
+
+    @tweets = User.find(params[:id]).tweets.order("created_at DESC")
   end
 end
