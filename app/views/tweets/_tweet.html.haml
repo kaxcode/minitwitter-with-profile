@@ -1,7 +1,7 @@
 %tr
   %td
     %p
-      = tweet.user_name
+      = link_to tweet.user_name, user_path(tweet)
       ·
       = distance_of_time_in_words_to_now(tweet.created_at)
     %p
